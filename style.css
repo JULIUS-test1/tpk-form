@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Squad-Heavy", "Inter";
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Squad-Heavy";
+  src: url("./font/Fontfabric-Squad-Heavy.woff2");
+}
+@font-face {
+  font-family: "Squad-Bold";
+  src: url("./font/Fontfabric-Squad-Bold.woff2");
+}
+body {
+  font-family: "Squad";
+}
+
+.form-container iframe {
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
