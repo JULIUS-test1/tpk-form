@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Congrats</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/jpg" />
+    <link
+      rel="preload"
+      href="./font/Fontfabric-Squad-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./font/Fontfabric-Squad-Heavy.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card">
+        <div class="emoji">✨</div>
+        <h1>Hi <span class="highlight fullname"></span>,</h1>
+        <h2>Congratulations!</h2>
+
+        <p>
+          Thank you for joining the <strong>Tapa King Royal Escape</strong> 38th
+          Anniversary Vacation Raffle! Based on your recent purchase of ₱<span
+            class="highlight purchaseAmount"
+          ></span
+          >, you have earned <span class="highlight totalEntries"></span> raffle
+          entries!
+        </p>
+
+        <div class="details">
+          🛒 Total Spent: ₱<span class="purchaseAmount"></span> <br />
+          🎟️ Raffle Entries Earned: <span class="totalEntries"></span>
+        </div>
+
+        <p>
+          You’re now one step closer to winning an amazing vacation getaway!
+        </p>
+        <p>Good luck, and happy winning! 🍀</p>
+
+        <div class="footer">Best regards,<br />The Tapa King Team</div>
+      </div>
+
+      <button class="back-button" onclick="history.back()">Back</button>
+    </div>
+  </body>
+
+  <script>
+    // Get the full query string from the URL
+    const params = new URLSearchParams(window.location.search);
+
+    // Extract values by key
+    let fullname = params.get("fullname"); // e.g. '"Ryan"'
+    let purchaseAmount = params.get("purchase-amount"); // e.g. '"1500"'
+
+    // Optional: Remove surrounding quotes if any
+    fullname = fullname ? fullname.replace(/^"|"$/g, "") : "";
+    purchaseAmount = purchaseAmount ? purchaseAmount.replace(/^"|"$/g, "") : "";
+
+    console.log("Fullname:", fullname); // Ryan
+    console.log("Purchase Amount:", purchaseAmount); // 1500
+
+    const fullnameEle = document.querySelector(".fullname");
+    const purchaseAmountEle = document.querySelectorAll(".purchaseAmount");
+    const totalEntriesEle = document.querySelectorAll(".totalEntries");
+
+    fullnameEle.innerHTML = fullname;
+
+    purchaseAmountEle.forEach((el) => {
+      el.textContent = purchaseAmount;
+    });
+    totalEntriesEle.forEach((el) => {
+      el.textContent = Math.floor(Number(purchaseAmount) / 750);
+    });
+  </script>
+</html>
