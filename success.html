@@ -56,11 +56,14 @@
     </div>
   </body>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
   <script>
-    (function () {
-      emailjs.init("TtphRhBsj4JpJ1e0T"); // Replace with your Public Key
-    })();
+    emailjs.init({
+      publicKey: "TtphRhBsj4JpJ1e0T",
+    });
   </script>
 
   <script>
