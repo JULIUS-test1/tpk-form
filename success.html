@@ -56,6 +56,13 @@
     </div>
   </body>
 
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("TtphRhBsj4JpJ1e0T"); // Replace with your Public Key
+    })();
+  </script>
+
   <script>
     // Get the full query string from the URL
     const params = new URLSearchParams(window.location.search);
@@ -75,13 +82,28 @@
     const purchaseAmountEle = document.querySelectorAll(".purchaseAmount");
     const totalEntriesEle = document.querySelectorAll(".totalEntries");
 
+    const totalEntriesCount = Math.floor(Number(purchaseAmount) / 750);
+
     fullnameEle.innerHTML = fullname;
 
     purchaseAmountEle.forEach((el) => {
       el.textContent = purchaseAmount;
     });
     totalEntriesEle.forEach((el) => {
-      el.textContent = Math.floor(Number(purchaseAmount) / 750);
+      el.textContent = totalEntriesCount;
     });
+
+    emailjs
+      .send("service_4fdgspa", "template_ql4r0iy", {
+        name: fullname,
+        purchaseAmount: purchaseAmount,
+        totalEntries: totalEntriesCount,
+      })
+      .then(function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+      })
+      .catch(function (error) {
+        console.log("FAILED...", error);
+      });
   </script>
 </html>
