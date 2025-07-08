@@ -73,6 +73,7 @@
     // Optional: Remove surrounding quotes if any
     fullname = fullname ? fullname.replace(/^"|"$/g, "") : "";
     purchaseAmount = purchaseAmount ? purchaseAmount.replace(/^"|"$/g, "") : "";
+    email = email ? email.replace(/^"|"$/g, "") : "";
 
     const fullnameEle = document.querySelector(".fullname");
     const purchaseAmountEle = document.querySelectorAll(".purchaseAmount");
