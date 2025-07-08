@@ -73,19 +73,21 @@
     // Extract values by key
     let fullname = params.get("fullname"); // e.g. '"Ryan"'
     let purchaseAmount = params.get("purchase-amount"); // e.g. '"1500"'
+    let email = params.get("email"); // e.g. '"1500"'
 
     // Optional: Remove surrounding quotes if any
     fullname = fullname ? fullname.replace(/^"|"$/g, "") : "";
     purchaseAmount = purchaseAmount ? purchaseAmount.replace(/^"|"$/g, "") : "";
-
-    console.log("Fullname:", fullname); // Ryan
-    console.log("Purchase Amount:", purchaseAmount); // 1500
 
     const fullnameEle = document.querySelector(".fullname");
     const purchaseAmountEle = document.querySelectorAll(".purchaseAmount");
     const totalEntriesEle = document.querySelectorAll(".totalEntries");
 
     const totalEntriesCount = Math.floor(Number(purchaseAmount) / 750);
+
+    console.log("Fullname:", fullname); // Ryan
+    console.log("Purchase Amount:", purchaseAmount); // 1500
+    console.log("Total Entries:", totalEntriesCount); // 1500
 
     fullnameEle.innerHTML = fullname;
 
@@ -101,6 +103,7 @@
         name: fullname,
         purchaseAmount: purchaseAmount,
         totalEntries: totalEntriesCount,
+        email: email,
       })
       .then(function (response) {
         console.log("SUCCESS!", response.status, response.text);
